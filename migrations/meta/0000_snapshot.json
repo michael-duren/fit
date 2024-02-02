@@ -1,0 +1,204 @@
+{
+  "id": "00000000-0000-0000-0000-000000000000",
+  "prevId": "",
+  "version": "5",
+  "dialect": "pg",
+  "tables": {
+    "Exercises": {
+      "name": "Exercises",
+      "schema": "",
+      "columns": {
+        "ExerciseId": {
+          "name": "ExerciseId",
+          "type": "integer",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "Name": {
+          "name": "Name",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "VideoLink": {
+          "name": "VideoLink",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "Description": {
+          "name": "Description",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "WorkoutId": {
+          "name": "WorkoutId",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    },
+    "WorkoutWorkoutTypes": {
+      "name": "WorkoutWorkoutTypes",
+      "schema": "",
+      "columns": {
+        "WorkoutWorkoutTypeId": {
+          "name": "WorkoutWorkoutTypeId",
+          "type": "integer",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "WorkoutId": {
+          "name": "WorkoutId",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "WorkoutTypeId": {
+          "name": "WorkoutTypeId",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    },
+    "Workouts": {
+      "name": "Workouts",
+      "schema": "",
+      "columns": {
+        "WorkoutId": {
+          "name": "WorkoutId",
+          "type": "integer",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "Name": {
+          "name": "Name",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "WorkoutDetails": {
+          "name": "WorkoutDetails",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    },
+    "__EFMigrationsHistory": {
+      "name": "__EFMigrationsHistory",
+      "schema": "",
+      "columns": {
+        "MigrationId": {
+          "name": "MigrationId",
+          "type": "varchar(150)",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "ProductVersion": {
+          "name": "ProductVersion",
+          "type": "varchar(32)",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    },
+    "WorkoutTypes": {
+      "name": "WorkoutTypes",
+      "schema": "",
+      "columns": {
+        "WorkoutTypeId": {
+          "name": "WorkoutTypeId",
+          "type": "integer",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "WorkoutTypeName": {
+          "name": "WorkoutTypeName",
+          "type": "varchar(100)",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    },
+    "IndividualExercises": {
+      "name": "IndividualExercises",
+      "schema": "",
+      "columns": {
+        "IndividualExerciseId": {
+          "name": "IndividualExerciseId",
+          "type": "serial",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "Name": {
+          "name": "Name",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "VideoLink": {
+          "name": "VideoLink",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "WorkoutTypeId": {
+          "name": "WorkoutTypeId",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "IndividualExercises_WorkoutTypeId_fkey": {
+          "name": "IndividualExercises_WorkoutTypeId_fkey",
+          "tableFrom": "IndividualExercises",
+          "tableTo": "WorkoutTypes",
+          "schemaTo": "public",
+          "columnsFrom": [
+            "WorkoutTypeId"
+          ],
+          "columnsTo": [
+            "WorkoutTypeId"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    }
+  },
+  "enums": {},
+  "schemas": {},
+  "_meta": {
+    "schemas": {},
+    "tables": {},
+    "columns": {}
+  }
+}
