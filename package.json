@@ -11,8 +11,7 @@
 		"lint": "prettier --check . && eslint .",
 		"format": "prettier --write .",
 		"test:integration": "playwright test",
-		"test:unit": "vitest",
-		"scaffold": "drizzle-kit introspect:pg --driver pg --out=migrations/ --connectionString=\"postgresql://michael-duren:51OywxhPSjdo@ep-tiny-river-a5xy74sh.us-east-2.aws.neon.tech/Fitness?sslmode=require\""
+		"test:unit": "vitest"
 	},
 	"devDependencies": {
 		"@playwright/test": "^1.28.1",
@@ -49,6 +48,8 @@
 		"@floating-ui/dom": "1.6.1",
 		"@neondatabase/serverless": "^0.7.2",
 		"drizzle-orm": "^0.29.3",
-		"highlight.js": "11.9.0"
+		"highlight.js": "11.9.0",
+		"iconify-icon": "^1.0.8",
+		"svelte-icons-pack": "^2.1.0"
 	}
 }

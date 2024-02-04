@@ -10,6 +10,7 @@
 	import css from 'highlight.js/lib/languages/css';
 	import javascript from 'highlight.js/lib/languages/javascript';
 	import typescript from 'highlight.js/lib/languages/typescript';
+	import 'iconify-icon';
 
 	hljs.registerLanguage('xml', xml); // for HTML
 	hljs.registerLanguage('css', css);
@@ -29,10 +30,22 @@
 		<!-- App Bar -->
 		<AppBar>
 			<svelte:fragment slot="lead">
-				<strong class="text-xl uppercase">Mikes Fit</strong>
+				<a href="/">
+					<strong class="text-xl">Free Fitness</strong>
+				</a>
 			</svelte:fragment>
 			<svelte:fragment slot="trail">
-
+				<div class="flex gap-2">
+					<a href="/">
+						<iconify-icon icon="ph:house" width={20}></iconify-icon>
+					</a>
+					<a href="/workouts">
+						<iconify-icon icon="ph:notebook" width="1.2rem" height="1.2rem" />
+					</a>
+					<a href="/admin">
+						<iconify-icon icon="ph:database" width={20} />
+					</a>
+				</div>
 			</svelte:fragment>
 		</AppBar>
 	</svelte:fragment>
