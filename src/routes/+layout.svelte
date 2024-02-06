@@ -11,6 +11,8 @@
 	import javascript from 'highlight.js/lib/languages/javascript';
 	import typescript from 'highlight.js/lib/languages/typescript';
 	import 'iconify-icon';
+	import { navigating } from '$app/stores';
+	import { loading } from '$lib/loading';
 
 	hljs.registerLanguage('xml', xml); // for HTML
 	hljs.registerLanguage('css', css);
@@ -18,9 +20,13 @@
 	hljs.registerLanguage('typescript', typescript);
 	storeHighlightJs.set(hljs);
 
+	// takes a obj/null converts it to a boolean, and then returns the opposite of that
+	$: $loading = !!$navigating;
+
 	// Floating UI for Popups
 	import { computePosition, autoUpdate, flip, shift, offset, arrow } from '@floating-ui/dom';
 	import { storePopup } from '@skeletonlabs/skeleton';
+	import Spinner from '$lib/ui/Spinner.svelte';
 	storePopup.set({ computePosition, autoUpdate, flip, shift, offset, arrow });
 </script>
 
@@ -50,5 +56,9 @@
 		</AppBar>
 	</svelte:fragment>
 	<!-- Page Route Content -->
-	<slot />
+	{#if $loading}
+		<Spinner />
+	{:else}
+		<slot />
+	{/if}
 </AppShell>

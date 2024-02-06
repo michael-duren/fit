@@ -5,8 +5,6 @@
 	export let data: PageData;
 	const workout = data.workout;
 	const workoutExercises = data.workoutExercises;
-	console.log('DATA', data.workout);
-	console.log('DATA', data.workoutExercises);
 </script>
 
 <div class="card m-8 p-4">
