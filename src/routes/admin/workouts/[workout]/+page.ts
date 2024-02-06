@@ -1,5 +1,5 @@
-import type { PageLoad } from './$types';
+// import type { PageLoad } from './$types';
 
-export const load: PageLoad = ({ route }) => {
-	console.log(route.id);
-};
+// export const load: PageLoad = ({ route }) => {
+// 	console.log(route.id);
+// };

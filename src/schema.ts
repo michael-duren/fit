@@ -36,3 +36,9 @@ export const individualExercises = pgTable('IndividualExercises', {
 	videoLink: text('VideoLink'),
 	workoutTypeId: integer('WorkoutTypeId').references(() => workoutTypes.workoutTypeId)
 });
+
+export type Workout = typeof workouts.$inferSelect;
+export type Exercise = typeof exercises.$inferSelect;
+export type WorkoutType = typeof workoutTypes.$inferSelect;
+export type WorkoutWorkoutTypes = typeof workoutWorkoutTypes.$inferSelect;
+export type IndividualExercise = typeof individualExercises.$inferSelect;
