@@ -1,11 +1,16 @@
+import { eq } from 'drizzle-orm';
 import { db } from '../../hooks.server';
-import { exercises, workouts, type Exercise } from '../../schema';
+import { workoutWorkoutTypes, workouts } from '../../schema';
 import type { PageServerLoad } from './$types';
 
-export const load: PageServerLoad = async () => {
-	const workout = await db.select().from(workouts);
+export const load: PageServerLoad = async ({ setHeaders }) => {
+	const allWorkouts = await db.select().from(workouts);
+
+	setHeaders({
+		'cache-control': 'max-age=604800'
+	});
 
 	return {
-		workouts: workout
+		workouts: allWorkouts
 	};
 };
